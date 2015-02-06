@@ -1,0 +1,222 @@
+// bower:scss
+// endbower
+
+$base_color: #FFFFFF;
+$edge_color: #7f8c8d;
+$main_color: #e74c3c;
+$flat_color: #ecf0f1;
+$true_color: #1abc9c;
+$false_color: #c0392b;
+$red_color: #c0392b;
+$base_font_size : 62.5%;
+$exam_color: #C7BFB8;
+$pingpong_color: #e67e22;
+$section_color: #95a5a6;
+$button_round_color: #dfdfdf;
+
+$set-prefix: '' , -moz- , -webkit-;
+@mixin PropertySetPrefix($name, $value) {
+  @each $prefix in $set-prefix {
+    #{$prefix}#{$name}: $value;
+  }
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-size: $base_font_size;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 1.6rem;
+}
+
+.exam_box {
+  position: relative;
+  width: 90%;
+  height: 60%;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  background: $exam_color;
+  border-radius: 3px;
+  @include PropertySetPrefix(box-shadow, 3px 3px 3px rgba(0, 0, 0, 0.4));
+}
+
+.comprehension_desc {
+  padding: 10px;
+  text-align: left;
+  height: auto;
+  span{
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+}
+
+.answer_box {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.answer_item {
+  border: 10px solid $button_round_color;
+  margin: 10px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 3.5rem;
+}
+
+.center_circle {
+  margin-bottom: -10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 10px solid $button_round_color;
+  background: $button_round_color;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.answer_true {
+  @extend .answer_item;
+  margin-left: -5px;
+}
+
+.answer_false {
+  @extend .answer_item;
+  margin-right: -5px;
+}
+
+.btn-item {
+  border: 0px;
+  background: $base_color;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 0px !important;
+  line-height: 0;
+  span {
+    padding: 0px;
+    margin: 0px;
+  }
+}
+
+.btn-true {
+  @extend .btn-item;
+  color: $true_color;
+  &:hover {
+    background: $true_color;
+    color: $base_color;
+  }
+}
+.btn-false{
+  @extend .btn-item;
+  color:$false_color;
+  &:hover{
+    color: $base_color;
+    background: $false_color;
+  }
+}
+
+.badge {
+  padding: 4px;
+  display: block;
+  border-radius: 10px;
+  border: 4px solid;
+  position: absolute;
+  top: 40px;
+  font-size: 3rem;
+  opacity: 0;
+}
+
+.true_badge {
+  @extend .badge;
+  border-color: $true_color;
+  color: $true_color;
+  left: 10px;
+  @include PropertySetPrefix(transform, rotate(-30deg));
+}
+
+.false_badge {
+  @extend .badge;
+  border-color: $false_color;
+  color: $false_color;
+  right: 10px;
+  @include PropertySetPrefix(transform, rotate(30deg));
+
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+@-webkit-keyframes bounceOutLeft {
+  20% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(1000px, 0, 0);
+    transform: translate3d(1000px, 0, 0);
+  }
+}
+
+.bounceOutLeft {
+  -webkit-animation-name: bounceOutLeft;
+  animation-name: bounceOutLeft;
+}
+
+@-webkit-keyframes bounceOutRight {
+  20% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  40%, 45% {
+    opacity: 1;
+    -webkit-transform: translate3d(20px, 0, 0);
+    transform: translate3d(20px, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-1000px, 0, 0);
+    transform: translate3d(-1000px, 0, 0);
+  }
+}
+
+.bounceOutRight {
+  -webkit-animation-name: bounceOutRight;
+  animation-name: bounceOutRight;
+}
+
+.main_container{
+  width: 100%;
+  height: 100%;
+}
+
+.hide {
+  display: none;
+}
